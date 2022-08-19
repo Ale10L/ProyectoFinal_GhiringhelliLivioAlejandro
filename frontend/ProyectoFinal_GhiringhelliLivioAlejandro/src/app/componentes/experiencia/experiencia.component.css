@@ -1,0 +1,22 @@
+.row{
+  padding: 30px;
+}
+
+div{
+  background-color: black;
+}
+
+h1, h3{
+  display: inline;
+  font-family: Georgia;
+  color: #fefefe;
+}
+
+p{
+  font-family: Georgia;
+  color: #fefefe;
+}
+
+li{
+  color: #fefefe;
+}

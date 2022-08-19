@@ -1,0 +1,71 @@
+.row {
+  padding: 30px;
+}
+
+div {
+  background-color: black;
+  text-align: center;
+  color:antiquewhite;
+}
+
+#fotoperfil {
+  position: absolute;
+  width: 15%;
+  border-radius: 100%;
+  box-shadow: 3px 3px 3px #fefefe;
+  left: 3%;
+  top: 500px;
+}
+
+#nombre {
+  margin-top: 30%;
+  font-weight: bold;
+  font-size: 23px;
+  font-family: Georgia;
+}
+
+#titulo {
+  font-weight: bolder;
+  font-size: 17px;
+  font-family: Georgia;
+}
+
+#aboutme {
+  font-family: Georgia;
+  text-align: center;
+  font-size: 15px;
+  margin-top: 5%;
+}
+
+/* @media(min-width: 576px) {
+  #fotoperfil {
+    position: absolute;
+    width: 15%;
+    border-radius: 100%;
+    box-shadow: 3px 3px 3px grey;
+    left: 40%;
+    top: 630px;
+  }
+}
+
+@media(max-width: 575px) {
+  #fotoperfil {
+    position: absolute;
+    width: 15%;
+    border-radius: 100%;
+    box-shadow: 3px 3px 3px grey;
+    left: 40%;
+    top: 630px;
+  }
+} */
+
+/*
+#columna-foto {
+  height: 50px;
+} */
+/*
+#columna-nombre {
+  text-align: center;
+} */
+
+

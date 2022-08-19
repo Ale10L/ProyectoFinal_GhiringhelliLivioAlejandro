@@ -1,0 +1,22 @@
+.row{
+  background-color: black;
+  padding: 30px;
+}
+#foto-banner {
+  width: 75px;
+  height: 275px;
+ }
+
+ #frase{
+  font-weight: bold;
+  font-size: 23px;
+  font-family: Georgia;
+  color: #fefefe;
+}
+
+#nombre{
+  font-weight: bolder;
+  font-size: 17px;
+  font-family: Georgia;
+  color: #fefefe;
+}

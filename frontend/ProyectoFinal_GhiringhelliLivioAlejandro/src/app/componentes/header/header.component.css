@@ -1,8 +1,11 @@
 div{
-  background-color: #a1b5cb;
+  background-color: black;
+  color: #fefefe;
+  padding: 10px;
 }
 
 app-redessociales{
   float: right;
   margin-top: 25px;
+  background-color: #fefefe;
 }
