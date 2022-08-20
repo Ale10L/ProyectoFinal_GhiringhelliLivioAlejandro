@@ -5,7 +5,7 @@
 div {
   background-color: black;
   text-align: center;
-  color:antiquewhite;
+  color:#fefefe;
 }
 
 #fotoperfil {
@@ -18,23 +18,26 @@ div {
 }
 
 #nombre {
-  margin-top: 30%;
+  margin-top: 80%;
   font-weight: bold;
-  font-size: 23px;
+  font-size: 20px;
   font-family: Georgia;
+  margin-left: 17%;
 }
 
 #titulo {
   font-weight: bolder;
   font-size: 17px;
   font-family: Georgia;
+  margin-left: 10%;
 }
 
 #aboutme {
   font-family: Georgia;
   text-align: center;
   font-size: 15px;
-  margin-top: 5%;
+  margin-left: 5%;
+  text-align: center;
 }
 
 /* @media(min-width: 576px) {
