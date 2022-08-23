@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { Persona } from 'src/app/model/persona.model';
+import { PersonaService } from 'src/app/service/persona.service';
 
 @Component({
   selector: 'app-redessociales',
@@ -6,10 +8,11 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./redessociales.component.css']
 })
 export class RedessocialesComponent implements OnInit {
-
-  constructor() { }
+  persona: Persona = new Persona("", "", "", "", "", "", "", "", "", "", "", "");
+  constructor(public personaService: PersonaService) { }
 
   ngOnInit(): void {
+    this.personaService.getPersona().subscribe(data => {this.persona = data});
   }
 
 }

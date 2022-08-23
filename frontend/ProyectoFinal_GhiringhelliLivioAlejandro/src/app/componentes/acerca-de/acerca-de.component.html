@@ -1,8 +1,8 @@
 <div class="row">
   <div class="col-xs-12 col-sm-2 col-md-2 col-lg-2" id="columna-foto">
-    <img src="../../../assets/imagenes/foto-perfil.jpg" class="img-fluid" id="fotoperfil">
-    <p id="nombre">Ghiringhelli, Livio Alejandro</p>
-    <p id="titulo">Full Stack Developer Jr.</p>
+    <img [src]="'../../../assets/imagenes/'+persona.imagen_perfil" class="img-fluid" id="fotoperfil">
+    <p id="nombre">{{persona.apellido}}, {{persona.nombre}}</p>
+    <p id="titulo">{{persona.titulo}}</p>
   </div>
   <div class="col" id="aboutme">
     <p><b>¡Bienvenidos a mi portfolio!</b>
