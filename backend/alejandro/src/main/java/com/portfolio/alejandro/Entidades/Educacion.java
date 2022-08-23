@@ -1,12 +1,17 @@
 package com.portfolio.alejandro.Entidades;
 
 import java.util.Date;
+import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Size;
+import lombok.Getter;
+import lombok.Setter;
 
+@Getter@Setter
+@Entity
 public class Educacion {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -23,13 +28,13 @@ public class Educacion {
     private Date fecha_inicio;
     private Date fecha_fin;
 
-    public Educacion(Long id, String nombre, String lugar, Date fecha_inicio, Date fecha_fin){
+    /*public Educacion(Long id, String nombre, String lugar, Date fecha_inicio, Date fecha_fin){
         this.id = id;
         this.nombre = nombre;
         this.lugar = lugar;
         this.fecha_inicio = fecha_inicio;
         this.fecha_fin = fecha_fin;
-    }
+    }*/
     
     public Long getId() {
         return id;
