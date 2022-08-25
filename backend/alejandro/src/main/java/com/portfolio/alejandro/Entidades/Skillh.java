@@ -1,14 +1,18 @@
 package com.portfolio.alejandro.Entidades;
 
+import java.math.BigDecimal;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Size;
+import lombok.Getter;
+import lombok.Setter;
 
+@Getter@Setter
 @Entity
-public class Proyectos {
+public class Skillh {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
@@ -16,10 +20,10 @@ public class Proyectos {
     @Size(min=1,max=50, message="Los datos ingresados no cumplen con la longitud de caracteres")
     private String nombre;
     @NotNull
-    @Size(min=1,max=300, message="Los datos ingresados no cumplen con la longitud de caracteres")
+    @Size(min=1,max=50, message="Los datos ingresados no cumplen con la longitud de caracteres")
     private String descripcion;
     @NotNull
-    private String enlace_proyecto;
+    private BigDecimal porcentaje;
 
     public Long getId() {
         return id;
@@ -45,11 +49,11 @@ public class Proyectos {
         this.descripcion = descripcion;
     }
 
-    public String getEnlace_proyecto() {
-        return enlace_proyecto;
+    public BigDecimal getPorcentaje() {
+        return porcentaje;
     }
 
-    public void setEnlace_proyecto(String enlace_proyecto) {
-        this.enlace_proyecto = enlace_proyecto;
+    public void setPorcentaje(BigDecimal porcentaje) {
+        this.porcentaje = porcentaje;
     }
 }
