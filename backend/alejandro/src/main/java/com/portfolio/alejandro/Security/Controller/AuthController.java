@@ -29,7 +29,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 @RestController
-@RequestMapping("/auth")
+@RequestMapping("/auth/")
 @CrossOrigin
 public class AuthController {
     @Autowired
@@ -51,8 +51,12 @@ public class AuthController {
             return new ResponseEntity(new Mensaje("Ese nombre de usuario ya existe"), HttpStatus.BAD_REQUEST);
         if(usuarioService.existsByEmail(nuevoUsuario.getEmail()))
             return new ResponseEntity(new Mensaje("Ese email ya existe"), HttpStatus.BAD_REQUEST);
-        Usuario usuario = new Usuario(nuevoUsuario.getNombre(), nuevoUsuario.getNombreUsuario(),
-            nuevoUsuario.getEmail(),passwordEncoder.encode(nuevoUsuario.getContrasenia()));
+        Usuario usuario = 
+                new Usuario(
+                        nuevoUsuario.getNombre(), 
+                        nuevoUsuario.getNombreUsuario(),
+                        nuevoUsuario.getEmail(),
+                        passwordEncoder.encode(nuevoUsuario.getContrasenia()));
         
         Set<Rol> roles = new HashSet<>();
         roles.add(rolService.getByRolNombre(RolNombre.ROLE_USER).get());

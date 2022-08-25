@@ -2,7 +2,10 @@ package com.portfolio.alejandro.Security.DTO;
 
 import java.util.Collection;
 import org.springframework.security.core.GrantedAuthority;
+import lombok.Getter;
+import lombok.Setter;
 
+@Getter @Setter
 public class JwtDto {
 
     private String token;
