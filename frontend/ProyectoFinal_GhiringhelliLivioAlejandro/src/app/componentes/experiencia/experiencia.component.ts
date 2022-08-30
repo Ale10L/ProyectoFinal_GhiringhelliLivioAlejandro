@@ -12,7 +12,23 @@ export class ExperienciaComponent implements OnInit {
   constructor(public experienciaService: ExperienciaLaboralService) { }
 
   ngOnInit(): void {
-    this.experienciaService.getExperienciaLaboral().subscribe(data => {this.experiencia = data});
+    this.experienciaService.getExperienciaLaboral().subscribe(data => { this.experiencia = data });
+  }
+
+  getYearInicio(fecha: number): number {
+    let devolverFecha: number;
+    devolverFecha = new Date(fecha).getFullYear();
+    return devolverFecha;
+  }
+
+  getYearFin(fecha: number): any {
+    let devolverFecha: any;
+    if (fecha !== null) {
+      devolverFecha = new Date(fecha).getFullYear();
+    } else {
+      devolverFecha = "actualidad";
+    }
+    return devolverFecha;
   }
 
 }

@@ -1,21 +1,21 @@
 export class Persona{
   id?: number;
-  apellido: String;
-  nombre: String;
-  acerca_de: String;
-  fecha_nac: String;
-  imagen_perfil: String;
-  localidad: String;
-  email: String;
-  titulo: String;
-  enlace_linkedin: String;
-  enlace_github: String;
-  enlace_instagram: String;
-  enlace_whatsapp: String;
+  apellido: string;
+  nombre: string;
+  acerca_de: string;
+  fecha_nac: string;
+  imagen_perfil: string;
+  localidad: string;
+  email: string;
+  titulo: string;
+  enlace_linkedin: string;
+  enlace_github: string;
+  enlace_instagram: string;
+  enlace_whatsapp: string;
 
-  constructor(apellido: String, nombre: String, acerca_de: String, fecha_nac: String, imagen_perfil: String,
-    localidad: String, email: String, titulo: String, enlace_linkedin: String, enlace_github: String,
-    enlace_instagram: String, enlace_whatsapp: String){
+  constructor(apellido: string, nombre: string, acerca_de: string, fecha_nac: string, imagen_perfil: string,
+    localidad: string, email: string, titulo: string, enlace_linkedin: string, enlace_github: string,
+    enlace_instagram: string, enlace_whatsapp: string){
       this.apellido = apellido;
       this.nombre = nombre;
       this.acerca_de = acerca_de;

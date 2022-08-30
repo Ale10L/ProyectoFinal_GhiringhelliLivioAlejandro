@@ -1,14 +1,14 @@
-export class Experiencia_Laboral{
+export class Educacion {
   id?: number;
   nombre: string;
-  descripcion: string;
+  lugar: string;
   fecha_inicio: string;
   fecha_fin: string;
 
 
-  constructor(nombre: string,descripcion: string, fecha_inicio: string, fecha_fin: string){
+  constructor(nombre: string, lugar: string, fecha_inicio: string, fecha_fin: string){
       this.nombre = nombre;
-      this.descripcion = descripcion;
+      this.lugar = lugar;
       this.fecha_inicio = fecha_inicio;
       this.fecha_fin = fecha_fin;
     }

@@ -5,7 +5,7 @@
 
     <ul>
       <li *ngFor="let exp of experiencia">
-        <h1>{{exp.nombre}} - </h1><h3>({{exp.fecha_inicio}} - {{exp.fecha_fin}})</h3>
+        <h1>{{exp.nombre}} - </h1><h3>({{getYearInicio(exp.fecha_inicio)}} - {{getYearFin(exp.fecha_fin)}})</h3>
         <p>
           {{exp.descripcion}}
         </p>
