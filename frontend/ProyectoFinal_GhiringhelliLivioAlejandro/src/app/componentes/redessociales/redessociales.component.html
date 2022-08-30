@@ -17,5 +17,6 @@
   <a class="btn btn-outline-light" [href]="persona.enlace_whatsapp" role="button" >
     <i class="bi bi-whatsapp"></i>
   </a>
-  <button type="button" class="btn btn-outline-light" (click)="login()">INGRESO</button>
+  <button type="button" class="btn btn-outline-light" (click)="login()" *ngIf="!isLoged">INGRESO</button>
+  <button type="button" class="btn btn-outline-light" (click)="onLogOut()" *ngIf="isLoged">CERRAR SESIÓN</button>
 </div>

@@ -15,7 +15,7 @@ export class LoginComponent implements OnInit {
   isLoginFail = false;
   loginUsuario?: LoginUsuario;
   nombreUsuario: string = '';
-  password: string = '';
+  contrasenia: string = '';
   roles: string[] = [];
   errorMsj: string = '';
 
@@ -30,7 +30,7 @@ export class LoginComponent implements OnInit {
   }
 
   onLogin(): void {
-    this.loginUsuario = new LoginUsuario(this.nombreUsuario, this.password);
+    this.loginUsuario = new LoginUsuario(this.nombreUsuario, this.contrasenia);
     this.authService.login(this.loginUsuario)
       .subscribe(
         {
@@ -41,7 +41,7 @@ export class LoginComponent implements OnInit {
             this.tokenService.setUserName(data.nombreUsuario);
             this.tokenService.setAuthAuthorities(data.authorities);
             this.roles = data.authorities;
-            this.router.navigate(['/']);
+            this.router.navigate(['']);
           },
           error: err => {
             this.isLoged = false;
@@ -53,6 +53,6 @@ export class LoginComponent implements OnInit {
   }
 
   cancelar() {
-    this.router.navigate(['/'])
+    this.router.navigate([''])
   }
 }

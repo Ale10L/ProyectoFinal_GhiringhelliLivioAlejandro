@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { Persona } from 'src/app/model/persona.model';
 import { PersonaService } from 'src/app/service/persona.service';
 import { Router } from '@angular/router';
+import { TokenService } from 'src/app/service/token.service';
 
 @Component({
   selector: 'app-redessociales',
@@ -10,13 +11,24 @@ import { Router } from '@angular/router';
 })
 export class RedessocialesComponent implements OnInit {
   persona: Persona = new Persona("", "", "", "", "", "", "", "", "", "", "", "");
-  constructor(public personaService: PersonaService, private router: Router) { }
+  isLoged = false;
+  constructor(public personaService: PersonaService, private router: Router, private tokenService: TokenService) { }
 
   ngOnInit(): void {
+    if(this.tokenService.getToken()){
+      this.isLoged = true;
+    } else {
+      this.isLoged = false;
+    }
     this.personaService.getPersona().subscribe(data => {this.persona = data});
   }
 
-  login(){
+  onLogOut(): void{
+    this.tokenService.logOut();
+    window.location.reload();
+  }
+
+  login(): void{
     this.router.navigate(['/login']);
   }
 }

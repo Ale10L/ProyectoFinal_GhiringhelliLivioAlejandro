@@ -8,7 +8,7 @@ import { ExperienciaLaboralService } from 'src/app/service/experiencia-laboral.s
   styleUrls: ['./experiencia.component.css']
 })
 export class ExperienciaComponent implements OnInit {
-  experiencia: any;//Experiencia_Laboral = new Experiencia_Laboral("", "", "", "");
+  experiencia: any;
   constructor(public experienciaService: ExperienciaLaboralService) { }
 
   ngOnInit(): void {
