@@ -10,7 +10,23 @@ export class ExperienciaLaboralService {
   URL = 'http://localhost:8080/personas/experiencia-laboral/'
   constructor(private http: HttpClient) { }
 
-  public getExperienciaLaboral(): Observable<Experiencia_Laboral>{
-    return this.http.get<Experiencia_Laboral>(this.URL+'traer');
+  public getExperienciaLaboral(): Observable<Experiencia_Laboral[]>{
+    return this.http.get<Experiencia_Laboral[]>(this.URL+'traer');
+  }
+
+  public detail(id: number): Observable<Experiencia_Laboral>{
+    return this.http.get<Experiencia_Laboral>(this.URL +`detail/${id}`);
+  }
+
+  public save(experiencia: Experiencia_Laboral): Observable<any>{
+    return this.http.post<any>(this.URL+`crear`, experiencia);
+  }
+
+  public update(id: number, experiencia: Experiencia_Laboral): Observable<any>{
+    return this.http.put<any>(this.URL+`modificar/${id}`, experiencia);
+  }
+
+  public delete(id: number, experiencia: Experiencia_Laboral): Observable<any>{
+    return this.http.delete<any>(this.URL+`borrar/${id}`);
   }
 }

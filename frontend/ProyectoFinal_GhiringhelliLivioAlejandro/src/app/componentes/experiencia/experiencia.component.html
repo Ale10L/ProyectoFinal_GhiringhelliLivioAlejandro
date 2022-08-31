@@ -1,15 +1,28 @@
 <div class="row">
   <h1>Experiencia laboral</h1>
-  <div class="col-lg-1"></div>
-  <div class="col-lg-11">
+  <div class="col-lg-1">
+    <button type="button" class="btn btn-outline-light" routerLink="/crearexp" *ngIf="isLoged"> Agregar
+      experiencia</button>
+    <div class="col-lg-11">
 
-    <ul>
-      <li *ngFor="let exp of experiencia">
-        <h1>{{exp.nombre}} - </h1><h3>({{getYearInicio(exp.fecha_inicio)}} - {{getYearFin(exp.fecha_fin)}})</h3>
-        <p>
-          {{exp.descripcion}}
-        </p>
-      </li>
-    </ul>
+      <table>
+        <thead>
+          <th>Nombre</th>
+          <th>Descripción</th>
+          <th>Fecha de inicio</th>
+          <th>Fecha de finalización</th>
+        </thead>
+        <tbody>
+          <tr *ngFor="let exp of experiencia">
+            <td>{{exp.nombre}}</td>
+            <td>{{exp.descripcion}}</td>
+            <td>({{getYearInicio(exp.fecha_inicio)}}</td>
+            <td>{{getYearFin(exp.fecha_fin)}})</td>
+            <td><button>Editar</button></td>
+            <td><button>Borrar</button></td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
   </div>
 </div>
