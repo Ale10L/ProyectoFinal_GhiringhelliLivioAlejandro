@@ -31,6 +31,18 @@ public class ExperienciaLaboral {
     
     private Date fecha_fin;
 
+    public ExperienciaLaboral() {
+    }
+
+    public ExperienciaLaboral(String nombre, String descripcion, Date fecha_inicio, Date fecha_fin) {
+        this.nombre = nombre;
+        this.descripcion = descripcion;
+        this.fecha_inicio = fecha_inicio;
+        this.fecha_fin = fecha_fin;
+    }
+
+    
+    
     public Long getId() {
         return Id;
     }
