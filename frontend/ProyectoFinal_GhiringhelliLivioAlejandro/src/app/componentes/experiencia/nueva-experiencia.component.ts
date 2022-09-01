@@ -22,11 +22,17 @@ export class NuevaExperienciaComponent implements OnInit {
   onCreate(): void {
     const experiencia = new Experiencia_Laboral(this.nombre, this.descripcion, this.fecha_inicio, this.fecha_fin);
     this.experienciaService.save(experiencia)
-      .subscribe(
-        data => {
-          alert("Experiencia laboral creada exitosamente");
+      .subscribe({
+        next:
+          data => {
+            alert("Experiencia laboral creada exitosamente");
+            this.router.navigate(['']);
+          },
+        error: error => {
+          alert("No se pudo crear la Experiencia laboral");
           this.router.navigate(['']);
         }
+      }
       )
   }
 

@@ -21,6 +21,7 @@ import { LoginComponent } from './componentes/login/login.component';
 import { FormsModule } from '@angular/forms';
 import { interceptorProvider } from './service/interceptor-service.service';
 import { NuevaExperienciaComponent } from './componentes/experiencia/nueva-experiencia.component';
+/*import { PersonaGuardService } from './guards/persona-guard.service';*/
 
 @NgModule({
   declarations: [
@@ -48,7 +49,8 @@ import { NuevaExperienciaComponent } from './componentes/experiencia/nueva-exper
     FormsModule
   ],
   providers: [
-    interceptorProvider
+    interceptorProvider/*,
+    PersonaGuardService*/
   ],
   bootstrap: [AppComponent]
 })

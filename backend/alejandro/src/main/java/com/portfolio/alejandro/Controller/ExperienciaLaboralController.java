@@ -8,6 +8,7 @@ import java.util.Date;
 import java.util.List;
 import javax.persistence.Convert;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -34,18 +35,21 @@ public class ExperienciaLaboralController {
         return iexperienciaService.findExperienciaLaboral((long)1);
     }
     
+    @PreAuthorize("hasRole('ADMIN')")
     @PostMapping("personas/experiencia-laboral/crear")
     public String createExperienciaLaboral(@RequestBody ExperienciaLaboral experiencia){
         iexperienciaService.saveExperienciaLaboral(experiencia);
         return "Experiencia laboral creada exitosamente";
     }
     
+    @PreAuthorize("hasRole('ADMIN')")
     @DeleteMapping("personas/experiencia-laboral/borrar/{id}")
     public String deleteExperienciaLaboral(@PathVariable Long id){
         iexperienciaService.deleteExperienciaLaboral(id);
         return "Experiencia laboral eliminada correctamente";
     }
     
+    @PreAuthorize("hasRole('ADMIN')")
     @PutMapping("personas/experiencia-laboral/modificar/{id}")
     public String updateExperienciaLaboral(@PathVariable Long id,
                                 @RequestParam("nombre") String nuevoNombre,

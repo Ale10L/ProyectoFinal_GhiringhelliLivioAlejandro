@@ -44,4 +44,8 @@ export class ExperienciaComponent implements OnInit {
     return devolverFecha;
   }
 
+  onSubmit(){
+    this.cargarExperiencia();
+  }
+
 }
