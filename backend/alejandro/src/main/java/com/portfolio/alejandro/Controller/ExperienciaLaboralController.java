@@ -40,7 +40,7 @@ public class ExperienciaLaboralController {
         return iexperienciaService.findExperienciaLaboral((long)1);
     }*/
     
-    @PreAuthorize("hasRole('ADMIN')")
+    @PreAuthorize("hasRole('ROLE_ADMIN')")
     @PostMapping("/crear")
     public ResponseEntity<?> createExperienciaLaboral(@RequestBody ExperienciaLaboralDTO dtoexp){
         if(StringUtils.isBlank(dtoexp.getNombre())){

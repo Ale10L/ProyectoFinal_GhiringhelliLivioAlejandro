@@ -11,7 +11,7 @@ const routes: Routes = [
   {path: 'login', component: LoginComponent},
   //{path: 'crearexp', component: NuevaExperienciaComponent, canActivate: [PersonaGuardService], data: { expectedRol: ['admin'] } },
   //{path: 'explab', component: ExperienciaComponent },
-  {path: 'crearexp', component: NuevaExperienciaComponent}
+  {path: 'explab', component: NuevaExperienciaComponent}
 ];
 
 @NgModule({

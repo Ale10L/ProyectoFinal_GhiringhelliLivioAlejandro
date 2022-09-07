@@ -19,15 +19,15 @@ export class ExperienciaLaboralService {
     return this.http.get<Experiencia_Laboral>(this.URL +`personas/experiencia-laboral/detail/${id}`);
   }
 
-  public save(experiencia: Experiencia_Laboral): Observable<any>{
+  public alta(experiencia: Experiencia_Laboral): Observable<Object>{
     return this.http.post<any>(this.URL+`crear`, experiencia);
   }
 
-  public update(id: number, experiencia: Experiencia_Laboral): Observable<any>{
+  public modificar(id: number, experiencia: Experiencia_Laboral): Observable<Object>{
     return this.http.put<any>(this.URL+`personas/experiencia-laboral/modificar/${id}`, experiencia);
   }
 
-  public delete(id: number, experiencia: Experiencia_Laboral): Observable<any>{
+  public baja(id: number, experiencia: Experiencia_Laboral): Observable<Object>{
     return this.http.delete<any>(this.URL+`personas/experiencia-laboral/borrar/${id}`);
   }
 }
