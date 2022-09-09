@@ -21,6 +21,7 @@ import { LoginComponent } from './componentes/login/login.component';
 import { FormsModule } from '@angular/forms';
 import { interceptorProvider } from './service/interceptor-service.service';
 import { NuevaExperienciaComponent } from './componentes/experiencia/nueva-experiencia.component';
+import { EditarExperienciaComponent } from './componentes/experiencia/editar-experiencia.component';
 /*import { PersonaGuardService } from './guards/persona-guard.service';*/
 
 @NgModule({
@@ -39,7 +40,8 @@ import { NuevaExperienciaComponent } from './componentes/experiencia/nueva-exper
     ProyectosComponent,
     HomeComponent,
     LoginComponent,
-    NuevaExperienciaComponent
+    NuevaExperienciaComponent,
+    EditarExperienciaComponent
   ],
   imports: [
     BrowserModule,

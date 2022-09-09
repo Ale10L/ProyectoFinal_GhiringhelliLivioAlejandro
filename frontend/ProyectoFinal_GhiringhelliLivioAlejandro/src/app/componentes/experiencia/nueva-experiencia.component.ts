@@ -14,9 +14,6 @@ export class NuevaExperienciaComponent implements OnInit {
   fecha_inicio: any = '';
   fecha_fin: any = '';
 
-  //exp?: Experiencia_Laboral;
-  //experiencia: Experiencia_Laboral = new Experiencia_Laboral("", "", "", "")
-
   constructor(private experienciaService: ExperienciaLaboralService, private router: Router) { }
 
   ngOnInit(): void {
@@ -24,8 +21,6 @@ export class NuevaExperienciaComponent implements OnInit {
 
   onCreate(): void {
     const experiencia = new Experiencia_Laboral(this.nombre, this.descripcion, this.fecha_inicio, this.fecha_fin);
-    //this.exp = new Experiencia_Laboral(this.nombre, this.descripcion, this.fecha_inicio, this.fecha_fin);
-    //this.experienciaService.save(this.exp)
     this.experienciaService.alta(experiencia)
       .subscribe({
         next:

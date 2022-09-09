@@ -41,7 +41,7 @@ public class ExperienciaLaboralController {
     }*/
     
     @PreAuthorize("hasRole('ROLE_ADMIN')")
-    @PostMapping("/crear")
+    @PostMapping("/agregarexp")
     public ResponseEntity<?> createExperienciaLaboral(@RequestBody ExperienciaLaboralDTO dtoexp){
         if(StringUtils.isBlank(dtoexp.getNombre())){
             return new ResponseEntity(new Mensaje("El nombre de la experiencia laboral es obligatorio"), HttpStatus.BAD_REQUEST);
@@ -57,7 +57,7 @@ public class ExperienciaLaboralController {
     }
     
     @PreAuthorize("hasRole('ADMIN')")
-    @DeleteMapping("personas/experiencia-laboral/borrar/{id}")
+    @DeleteMapping("/borrarexp/{id}")
     public ResponseEntity<?> deleteExperienciaLaboral(@PathVariable Long id){
         if(!iexperienciaService.existsById(id)){
             return new ResponseEntity(new Mensaje("El ID no existe"),HttpStatus.BAD_REQUEST);
@@ -67,8 +67,13 @@ public class ExperienciaLaboralController {
 //        return "Experiencia laboral eliminada correctamente";
     }
     
+    @GetMapping ("/detalleexp/{id}")
+    public ExperienciaLaboral findExperienciaLaboral(@PathVariable Long id){
+        return iexperienciaService.findExperienciaLaboral(id);
+    }
+    
     @PreAuthorize("hasRole('ADMIN')")
-    @PutMapping("personas/experiencia-laboral/modificar/{id}")
+    @PutMapping("/editarexp/{id}")
     public ResponseEntity<?> updateExperienciaLaboral(@PathVariable Long id, 
                                                       @RequestBody ExperienciaLaboralDTO dtoexp) throws ParseException{
         

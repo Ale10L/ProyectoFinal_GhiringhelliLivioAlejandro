@@ -1,7 +1,7 @@
 <div class="row">
   <h1>Experiencia laboral</h1>
   <div class="col-lg-1">
-    <button type="button" class="btn btn-outline-light" routerLink="/explab" *ngIf="isLoged"> Agregar
+    <button type="button" class="btn btn-outline-light" routerLink="/agregarexp" *ngIf="isLoged"> Agregar
       experiencia</button>
     <div class="col-lg-11">
 
@@ -18,8 +18,8 @@
             <td>{{exp.descripcion}}</td>
             <td>({{getYearInicio(exp.fecha_inicio)}}</td>
             <td>{{getYearFin(exp.fecha_fin)}})</td>
-            <td><button>Editar</button></td>
-            <td><button>Borrar</button></td>
+            <td *ngIf="isLoged"><button type="button" routerLink="/editarexp/{{exp.id}}"><i class="bi bi-pencil"></i></button></td>
+            <td *ngIf="isLoged"><button type="button" routerLink="/borrarexp/{{exp.id}}" (click)="eliminar(exp.id)"><i class="bi bi-trash"></i></button></td>
           </tr>
         </tbody>
       </table>

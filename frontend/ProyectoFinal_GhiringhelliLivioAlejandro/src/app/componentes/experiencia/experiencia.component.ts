@@ -48,4 +48,19 @@ export class ExperienciaComponent implements OnInit {
     this.cargarExperiencia();
   }
 
+  eliminar(id?: number){
+    if(id != undefined){
+      this.experienciaService.baja(id).subscribe({
+        next:
+            data => {
+              alert("Experiencia laboral eliminada exitosamente");
+              this.cargarExperiencia();
+            },
+          error: error => {
+            alert("No se pudo eliminar la Experiencia laboral");
+          }
+        }
+      );
+    }
+  }
 }
