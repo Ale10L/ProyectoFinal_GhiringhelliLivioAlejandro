@@ -35,11 +35,6 @@ public class ExperienciaLaboralController {
         return new ResponseEntity(lista, HttpStatus.OK);
     }
     
-    /*@GetMapping("personas/experiencia-laboral/")
-    public ExperienciaLaboral findExperienciaLaboral(){
-        return iexperienciaService.findExperienciaLaboral((long)1);
-    }*/
-    
     @PreAuthorize("hasRole('ROLE_ADMIN')")
     @PostMapping("/agregarexp")
     public ResponseEntity<?> createExperienciaLaboral(@RequestBody ExperienciaLaboralDTO dtoexp){
@@ -56,7 +51,7 @@ public class ExperienciaLaboralController {
         return new ResponseEntity(new Mensaje("Experiencia laboral creada exitosamente"), HttpStatus.OK);
     }
     
-    @PreAuthorize("hasRole('ADMIN')")
+    @PreAuthorize("hasRole('ROLE_ADMIN')")
     @DeleteMapping("/borrarexp/{id}")
     public ResponseEntity<?> deleteExperienciaLaboral(@PathVariable Long id){
         if(!iexperienciaService.existsById(id)){
@@ -64,7 +59,6 @@ public class ExperienciaLaboralController {
         }
         iexperienciaService.deleteExperienciaLaboral(id);
         return new ResponseEntity(new Mensaje("Experiencia laboral eliminada correctamente"), HttpStatus.OK);
-//        return "Experiencia laboral eliminada correctamente";
     }
     
     @GetMapping ("/detalleexp/{id}")
@@ -72,7 +66,7 @@ public class ExperienciaLaboralController {
         return iexperienciaService.findExperienciaLaboral(id);
     }
     
-    @PreAuthorize("hasRole('ADMIN')")
+    @PreAuthorize("hasRole('ROLE_ADMIN')")
     @PutMapping("/editarexp/{id}")
     public ResponseEntity<?> updateExperienciaLaboral(@PathVariable Long id, 
                                                       @RequestBody ExperienciaLaboralDTO dtoexp) throws ParseException{
@@ -88,15 +82,7 @@ public class ExperienciaLaboralController {
         if(iexperienciaService.existsByNombre(dtoexp.getNombre())){
             return new ResponseEntity(new Mensaje("Esa experiencia laboral ya existe"), HttpStatus.BAD_REQUEST);
         }
-        /*ExperienciaLaboral experiencia = iexperienciaService.findExperienciaLaboral(id);
-        experiencia.setNombre(nuevoNombre);
-        experiencia.setDescripcion(nuevaDescripcion);
-        SimpleDateFormat formato = new SimpleDateFormat("yyyy-MM-dd");
-        experiencia.setFecha_inicio(formato.parse(nuevaFecha_Inicio));
-        experiencia.setFecha_fin(formato.parse(nuevaFecha_Fin));
         
-        iexperienciaService.saveExperienciaLaboral(experiencia);
-        return "Experiencia laboral modificada correctamente";*/
         ExperienciaLaboral experiencia = iexperienciaService.getOne(id).get();
         experiencia.setNombre(dtoexp.getNombre());
         experiencia.setDescripcion(dtoexp.getDescripcion());

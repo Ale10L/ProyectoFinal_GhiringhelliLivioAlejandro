@@ -8,7 +8,7 @@ public class ExperienciaLaboralDTO {
     private String nombre;
     @NotBlank
     private String descripcion;
-    
+    @NotBlank
     private Date fecha_inicio;
     private Date fecha_fin;
 

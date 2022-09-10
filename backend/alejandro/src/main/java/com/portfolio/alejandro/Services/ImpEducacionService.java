@@ -4,6 +4,7 @@ import com.portfolio.alejandro.Repository.IEducacionRepository;
 import com.portfolio.alejandro.Entidades.Educacion;
 import com.portfolio.alejandro.Interfaces.IEducacionService;
 import java.util.List;
+import java.util.Optional;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -13,8 +14,7 @@ public class ImpEducacionService implements IEducacionService{
     
     @Override
     public List<Educacion> getEducacion() {
-        List<Educacion> Educacion = ieducacionRepository.findAll();
-        return Educacion;
+        return ieducacionRepository.findAll();
     }
 
     @Override
@@ -31,5 +31,21 @@ public class ImpEducacionService implements IEducacionService{
     public Educacion findEducacion(Long id) {
         Educacion Educacion = ieducacionRepository.findById(id).orElse(null);
         return Educacion;
+    }
+    
+    public Optional<Educacion> getOne(Long id){
+        return ieducacionRepository.findById(id);
+    }
+    
+    public Optional<Educacion> getByNombre(String nombre){
+        return ieducacionRepository.findByNombre(nombre);
+    }
+    
+    public boolean existsById(Long id){
+        return ieducacionRepository.existsById(id);
+    }
+    
+    public boolean existsByNombre(String nombre){
+        return ieducacionRepository.existsByNombre(nombre);
     }
 }

@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 import { Experiencia_Laboral } from 'src/app/model/experiencia_laboral.model';
 import { ExperienciaLaboralService } from 'src/app/service/experiencia-laboral.service';
 import { TokenService } from 'src/app/service/token.service';
@@ -11,7 +12,7 @@ import { TokenService } from 'src/app/service/token.service';
 export class ExperienciaComponent implements OnInit {
   experiencia: Experiencia_Laboral[] = [];
 
-  constructor(private experienciaService: ExperienciaLaboralService, private tokenService: TokenService) { }
+  constructor(private experienciaService: ExperienciaLaboralService, private tokenService: TokenService, private router: Router) { }
 
   isLoged = false;
 
@@ -55,9 +56,11 @@ export class ExperienciaComponent implements OnInit {
             data => {
               alert("Experiencia laboral eliminada exitosamente");
               this.cargarExperiencia();
+              this.router.navigate(['']);
             },
           error: error => {
             alert("No se pudo eliminar la Experiencia laboral");
+            this.router.navigate(['']);
           }
         }
       );

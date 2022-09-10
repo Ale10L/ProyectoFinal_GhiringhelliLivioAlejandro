@@ -1,11 +1,17 @@
 package com.portfolio.alejandro.Controller;
 
+import com.portfolio.alejandro.DTO.EducacionDTO;
 import com.portfolio.alejandro.Entidades.Educacion;
-import com.portfolio.alejandro.Interfaces.IEducacionService;
+import com.portfolio.alejandro.Security.Controller.Mensaje;
+import com.portfolio.alejandro.Services.ImpEducacionService;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.List;
+import org.apache.commons.lang3.StringUtils;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
+import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -13,46 +19,84 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
+import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
 @RestController
+@RequestMapping("edu")
 @CrossOrigin(origins = "*")
 public class EducacionController {
-    @Autowired IEducacionService ieducacionService;
+    @Autowired ImpEducacionService ieducacionService;
     
-    @GetMapping("personas/educacion/traer")
-    public List<Educacion> getEducacion(){
-        return ieducacionService.getEducacion();
+    @GetMapping("/traer")
+    public ResponseEntity<List<Educacion>> getEducacion(){
+         List<Educacion> lista = ieducacionService.getEducacion();
+         return new ResponseEntity(lista, HttpStatus.OK);
     }
     
-    @PostMapping("personas/educacion/crear")
-    public String createEducacion(@RequestBody Educacion educacion){
-        ieducacionService.saveEducacion(educacion);
-        return "Educacion creada exitosamente";
-    }
-    
-    @DeleteMapping("personas/educacion/borrar/{id}")
-    public String deleteEducacion(@PathVariable Long id){
-        ieducacionService.deleteEducacion(id);
-        return "Educacion eliminada correctamente";
-    }
-    
-    @PutMapping("personas/educacion/modificar/{id}")
-    public String updateEducacion(@PathVariable Long id,
-                                @RequestParam("nombre") String nuevoNombre,
-                                @RequestParam("lugar") String nuevoLugar,
-                                @RequestParam("fecha_inicio") String nuevaFecha_Inicio,
-                                @RequestParam("fecha_fin") String nuevaFecha_Fin) throws ParseException{
-        Educacion educacion = ieducacionService.findEducacion(id);
-        educacion.setNombre(nuevoNombre);
-        educacion.setLugar(nuevoLugar);
-        SimpleDateFormat formato = new SimpleDateFormat("yyyy-MM-dd");
-        educacion.setFecha_inicio(formato.parse(nuevaFecha_Inicio));
-        educacion.setFecha_fin(formato.parse(nuevaFecha_Fin));
+    @PreAuthorize("hasRole('ROLE_ADMIN')")
+    @PostMapping("/agregaredu")
+    public ResponseEntity<?> createEducacion(@RequestBody EducacionDTO dtoedu){
+        if(StringUtils.isBlank(dtoedu.getNombre())){
+            return new ResponseEntity(new Mensaje("El nombre de la educación es obligatorio"), HttpStatus.BAD_REQUEST);
+        }
+        if(ieducacionService.existsByNombre(dtoedu.getNombre())){
+            return new ResponseEntity(new Mensaje("Esa educación ya existe"), HttpStatus.BAD_REQUEST);
+        }
+        Educacion educacion = new Educacion(dtoedu.getNombre(),dtoedu.getLugar(), dtoedu.getFecha_inicio(),dtoedu.getFecha_fin());
         
         ieducacionService.saveEducacion(educacion);
-        return "Educacion modificada correctamente";
+        return new ResponseEntity(new Mensaje("Educación creada exitosamente"), HttpStatus.OK);
+    }
+    
+    /*@GetMapping ("/detalleedu/{id}")
+    public Educacion findExperienciaLaboral(@PathVariable Long id){
+        return ieducacionService.findEducacion(id);
+    }*/
+    
+    @GetMapping("/detalledu/{id}")
+    public ResponseEntity<Educacion> findExperienciaLaboral(@PathVariable Long id){
+        if(!ieducacionService.existsById(id)){
+            return new ResponseEntity(new Mensaje("ID inexistente"), HttpStatus.BAD_REQUEST);
+        }
+        Educacion educacion = ieducacionService.getOne(id).get();
+        return new ResponseEntity(educacion, HttpStatus.OK);    }
+    
+    @PreAuthorize("hasRole('ROLE_ADMIN')")
+    @DeleteMapping("/borraredu/{id}")
+    public ResponseEntity<?> deleteEducacion(@PathVariable Long id){
+        if(!ieducacionService.existsById(id)){
+            return new ResponseEntity(new Mensaje("El ID no existe"),HttpStatus.BAD_REQUEST);
+        }
+        ieducacionService.deleteEducacion(id);
+        return new ResponseEntity(new Mensaje("Educacion eliminada correctamente"), HttpStatus.OK);
+    }
+    
+    @PreAuthorize("hasRole('ROLE_ADMIN')")
+    @PutMapping("/editaredu/{id}")
+    public ResponseEntity<?> updateEducacion(@PathVariable Long id,
+                                @RequestBody EducacionDTO dtoedu) throws ParseException{
+        
+        if(!ieducacionService.existsById(id)){
+            return new ResponseEntity(new Mensaje("El ID no existe"),HttpStatus.BAD_REQUEST);
+        }
+        
+        if(ieducacionService.existsByNombre(dtoedu.getNombre()) && ieducacionService.getByNombre(dtoedu.getNombre()).get().getId() != id){
+            return new ResponseEntity(new Mensaje("Esa educación ya existe"),HttpStatus.BAD_REQUEST);
+        }
+        
+        if(ieducacionService.existsByNombre(dtoedu.getNombre())){
+            return new ResponseEntity(new Mensaje("Esa educación ya existe"), HttpStatus.BAD_REQUEST);
+        }
+        
+        Educacion educacion = ieducacionService.getOne(id).get();
+        educacion.setNombre(dtoedu.getNombre());
+        educacion.setLugar(dtoedu.getLugar());
+        educacion.setFecha_inicio(dtoedu.getFecha_inicio());
+        educacion.setFecha_fin(dtoedu.getFecha_fin());
+        ieducacionService.saveEducacion(educacion);
+        return new ResponseEntity(new Mensaje("Educacion modificada correctamente"), HttpStatus.OK);
     }
     
 }

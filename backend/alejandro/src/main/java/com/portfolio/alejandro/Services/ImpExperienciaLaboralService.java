@@ -15,7 +15,6 @@ public class ImpExperienciaLaboralService implements IExperienciaLaboralService 
     
     @Override
     public List<ExperienciaLaboral> getExperienciaLaboral() {
-        //List<ExperienciaLaboral> experienciaLaboral = iexperienciaRepository.findAll();
         return iexperienciaRepository.findAll();
     }
 

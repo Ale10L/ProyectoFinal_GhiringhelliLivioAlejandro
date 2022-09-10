@@ -28,13 +28,16 @@ public class Educacion {
     private Date fecha_inicio;
     private Date fecha_fin;
 
-    /*public Educacion(Long id, String nombre, String lugar, Date fecha_inicio, Date fecha_fin){
-        this.id = id;
+    public Educacion(){
+        
+    }
+    
+    public Educacion(String nombre, String lugar, Date fecha_inicio, Date fecha_fin){
         this.nombre = nombre;
         this.lugar = lugar;
         this.fecha_inicio = fecha_inicio;
         this.fecha_fin = fecha_fin;
-    }*/
+    }
     
     public Long getId() {
         return id;

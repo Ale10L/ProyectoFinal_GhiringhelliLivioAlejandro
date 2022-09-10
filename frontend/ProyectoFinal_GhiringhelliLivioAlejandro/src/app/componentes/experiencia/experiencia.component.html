@@ -1,25 +1,25 @@
 <div class="row">
   <h1>Experiencia laboral</h1>
-  <div class="col-lg-1">
-    <button type="button" class="btn btn-outline-light" routerLink="/agregarexp" *ngIf="isLoged"> Agregar
-      experiencia</button>
-    <div class="col-lg-11">
-
-      <table>
-        <thead>
-          <th>Nombre</th>
-          <th>Descripción</th>
-          <th>Fecha de inicio</th>
-          <th>Fecha de finalización</th>
+  <div>
+    <button type="button" class="btn btn-outline-light" routerLink="/agregarexp" *ngIf="isLoged"> Agregar experiencia</button>
+    <div>
+      <table class="table table-striped table-dark">
+        <thead class="thead-light">
+          <th scope="col">ID</th>
+          <th scope="col">Nombre</th>
+          <th scope="col">Descripción</th>
+          <th scope="col">Inicio</th>
+          <th scope="col">Finalización</th>
         </thead>
         <tbody>
           <tr *ngFor="let exp of experiencia">
+            <th scope="row">{{exp.id}}</th>
             <td>{{exp.nombre}}</td>
             <td>{{exp.descripcion}}</td>
-            <td>({{getYearInicio(exp.fecha_inicio)}}</td>
-            <td>{{getYearFin(exp.fecha_fin)}})</td>
-            <td *ngIf="isLoged"><button type="button" routerLink="/editarexp/{{exp.id}}"><i class="bi bi-pencil"></i></button></td>
-            <td *ngIf="isLoged"><button type="button" routerLink="/borrarexp/{{exp.id}}" (click)="eliminar(exp.id)"><i class="bi bi-trash"></i></button></td>
+            <td>{{getYearInicio(exp.fecha_inicio)}}</td>
+            <td>{{getYearFin(exp.fecha_fin)}}</td>
+            <td *ngIf="isLoged"><button type="button" class="btn btn-light" routerLink="/editarexp/{{exp.id}}"><i class="bi bi-pencil"></i></button></td>
+            <td *ngIf="isLoged"><button type="button" class="btn btn-danger" routerLink="/borrarexp/{{exp.id}}" (click)="eliminar(exp.id)"><i class="bi bi-trash"></i></button></td>
           </tr>
         </tbody>
       </table>
