@@ -8,6 +8,15 @@ import { ExperienciaComponent } from './componentes/experiencia/experiencia.comp
 import { NuevaExperienciaComponent } from './componentes/experiencia/nueva-experiencia.component';
 import { HomeComponent } from './componentes/home/home.component';
 import { LoginComponent } from './componentes/login/login.component';
+import { EditarProyectoComponent } from './componentes/proyectos/editar-proyecto.component';
+import { NuevoProyectoComponent } from './componentes/proyectos/nuevo-proyecto.component';
+import { ProyectosComponent } from './componentes/proyectos/proyectos.component';
+import { EditarSkillHComponent } from './componentes/skills/hard/editar-skill.component';
+import { NuevaSkillHComponent } from './componentes/skills/hard/nueva-skill.component';
+import { EditarSkillSComponent } from './componentes/skills/soft/editar-skill.component';
+import { NuevaSkillSComponent } from './componentes/skills/soft/nueva-skill.component';
+import { HardComponent } from './componentes/skills/hard/hard.component';
+import { SoftComponent } from './componentes/skills/soft/soft.component';
 //import { PersonaGuardService } from './guards/persona-guard.service';
 
 const routes: Routes = [
@@ -20,7 +29,16 @@ const routes: Routes = [
   {path: 'borrarexp/:id', component: ExperienciaComponent},
   {path: 'agregaredu', component: NuevaEducacionComponent},
   {path: 'editaredu/:id', component: EditarEducacionComponent},
-  {path: 'borraredu/:id', component: EducacionComponent}
+  {path: 'borraredu/:id', component: EducacionComponent},
+  {path: 'agregarproyecto', component: NuevoProyectoComponent},
+  {path: 'editarproyecto/:id', component: EditarProyectoComponent},
+  {path: 'borrarproyecto/:id', component: ProyectosComponent},
+  {path: 'agregarskillh', component: NuevaSkillHComponent},
+  {path: 'editarskillh/:id', component: EditarSkillHComponent},
+  {path: 'borrarskillh/:id', component: HardComponent},
+  {path: 'agregarskills', component: NuevaSkillSComponent},
+  {path: 'editarskills/:id', component: EditarSkillSComponent},
+  {path: 'borrarskills/:id', component: SoftComponent}
 ];
 
 @NgModule({

@@ -21,6 +21,16 @@ public class Proyectos {
     @NotNull
     private String enlace_proyecto;
 
+    public Proyectos(){
+        
+    }
+
+    public Proyectos(String nombre, String descripcion, String enlace_proyecto) {
+        this.nombre = nombre;
+        this.descripcion = descripcion;
+        this.enlace_proyecto = enlace_proyecto;
+    }
+    
     public Long getId() {
         return id;
     }

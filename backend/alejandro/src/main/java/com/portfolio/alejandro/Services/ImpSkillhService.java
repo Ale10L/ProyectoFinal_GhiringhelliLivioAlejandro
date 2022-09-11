@@ -4,6 +4,7 @@ import com.portfolio.alejandro.Entidades.Skillh;
 import com.portfolio.alejandro.Interfaces.ISkillhService;
 import com.portfolio.alejandro.Repository.ISkillhRepository;
 import java.util.List;
+import java.util.Optional;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -13,8 +14,7 @@ public class ImpSkillhService implements ISkillhService{
 
     @Override
     public List<Skillh> getSkillh() {
-        List<Skillh> Skill = iskillhRepository.findAll();
-        return Skill;
+        return iskillhRepository.findAll();
     }
 
     @Override
@@ -31,5 +31,21 @@ public class ImpSkillhService implements ISkillhService{
     public Skillh findSkill(Long id) {
         Skillh Skill = iskillhRepository.findById(id).orElse(null);
         return Skill;
+    }
+    
+    public Optional<Skillh> getOne(Long id){
+        return iskillhRepository.findById(id);
+    }
+    
+    public Optional<Skillh> getByNombre(String nombre){
+        return iskillhRepository.findByNombre(nombre);
+    }
+    
+    public boolean existsById(Long id){
+        return iskillhRepository.existsById(id);
+    }
+    
+    public boolean existsByNombre(String nombre){
+        return iskillhRepository.existsByNombre(nombre);
     }
 }

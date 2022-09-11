@@ -4,6 +4,7 @@ import com.portfolio.alejandro.Entidades.Proyectos;
 import com.portfolio.alejandro.Interfaces.IProyectosService;
 import com.portfolio.alejandro.Repository.IProyectosRepository;
 import java.util.List;
+import java.util.Optional;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -13,8 +14,7 @@ public class ImpProyectosService implements IProyectosService{
     
     @Override
     public List<Proyectos> getProyectos() {
-        List<Proyectos> Proyecto = iproyectosRepository.findAll();
-        return Proyecto;
+        return iproyectosRepository.findAll();
     }
 
     @Override
@@ -33,4 +33,19 @@ public class ImpProyectosService implements IProyectosService{
         return Proyecto;
     }
     
+    public Optional<Proyectos> getOne(Long id){
+        return iproyectosRepository.findById(id);
+    }
+    
+    public Optional<Proyectos> getByNombre(String nombre){
+        return iproyectosRepository.findByNombre(nombre);
+    }
+    
+    public boolean existsById(Long id){
+        return iproyectosRepository.existsById(id);
+    }
+    
+    public boolean existsByNombre(String nombre){
+        return iproyectosRepository.existsByNombre(nombre);
+    }
 }

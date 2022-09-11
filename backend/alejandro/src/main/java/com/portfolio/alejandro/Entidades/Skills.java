@@ -25,6 +25,15 @@ public class Skills {
     @NotNull
     private BigDecimal porcentaje;
 
+    public Skills() {
+    }
+
+    public Skills(String nombre, String descripcion, BigDecimal porcentaje) {
+        this.nombre = nombre;
+        this.descripcion = descripcion;
+        this.porcentaje = porcentaje;
+    }
+
     public Long getId() {
         return id;
     }

@@ -25,6 +25,15 @@ public class Skillh {
     @NotNull
     private BigDecimal porcentaje;
 
+    public Skillh() {
+    }
+
+    public Skillh(String nombre, String descripcion, BigDecimal porcentaje) {
+        this.nombre = nombre;
+        this.descripcion = descripcion;
+        this.porcentaje = porcentaje;
+    }
+
     public Long getId() {
         return id;
     }

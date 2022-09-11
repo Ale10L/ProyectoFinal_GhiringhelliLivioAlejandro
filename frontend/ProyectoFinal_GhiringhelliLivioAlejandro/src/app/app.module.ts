@@ -24,6 +24,12 @@ import { NuevaExperienciaComponent } from './componentes/experiencia/nueva-exper
 import { EditarExperienciaComponent } from './componentes/experiencia/editar-experiencia.component';
 import { NuevaEducacionComponent } from './componentes/educacion/nueva-educacion.component';
 import { EditarEducacionComponent } from './componentes/educacion/editar-educacion.component';
+import { NuevoProyectoComponent } from './componentes/proyectos/nuevo-proyecto.component';
+import { NuevaSkillHComponent } from './componentes/skills/hard/nueva-skill.component';
+import { NuevaSkillSComponent } from './componentes/skills/soft/nueva-skill.component';
+import { EditarProyectoComponent } from './componentes/proyectos/editar-proyecto.component';
+import { EditarSkillHComponent } from './componentes/skills/hard/editar-skill.component';
+import { EditarSkillSComponent } from './componentes/skills/soft/editar-skill.component';
 /*import { PersonaGuardService } from './guards/persona-guard.service';*/
 
 @NgModule({
@@ -45,7 +51,13 @@ import { EditarEducacionComponent } from './componentes/educacion/editar-educaci
     NuevaExperienciaComponent,
     EditarExperienciaComponent,
     NuevaEducacionComponent,
-    EditarEducacionComponent
+    EditarEducacionComponent,
+    NuevoProyectoComponent,
+    NuevaSkillHComponent,
+    NuevaSkillSComponent,
+    EditarProyectoComponent,
+    EditarSkillHComponent,
+    EditarSkillSComponent
   ],
   imports: [
     BrowserModule,

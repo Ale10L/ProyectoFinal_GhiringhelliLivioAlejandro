@@ -56,18 +56,19 @@ public class EducacionController {
     }*/
     
     @GetMapping("/detalledu/{id}")
-    public ResponseEntity<Educacion> findExperienciaLaboral(@PathVariable Long id){
+    public ResponseEntity<Educacion> findEducacion(@PathVariable Long id){
         if(!ieducacionService.existsById(id)){
             return new ResponseEntity(new Mensaje("ID inexistente"), HttpStatus.BAD_REQUEST);
         }
         Educacion educacion = ieducacionService.getOne(id).get();
-        return new ResponseEntity(educacion, HttpStatus.OK);    }
+        return new ResponseEntity(educacion, HttpStatus.OK);    
+    }
     
     @PreAuthorize("hasRole('ROLE_ADMIN')")
     @DeleteMapping("/borraredu/{id}")
     public ResponseEntity<?> deleteEducacion(@PathVariable Long id){
         if(!ieducacionService.existsById(id)){
-            return new ResponseEntity(new Mensaje("El ID no existe"),HttpStatus.BAD_REQUEST);
+            return new ResponseEntity(new Mensaje("ID inexistente"),HttpStatus.BAD_REQUEST);
         }
         ieducacionService.deleteEducacion(id);
         return new ResponseEntity(new Mensaje("Educacion eliminada correctamente"), HttpStatus.OK);
@@ -96,7 +97,7 @@ public class EducacionController {
         educacion.setFecha_inicio(dtoedu.getFecha_inicio());
         educacion.setFecha_fin(dtoedu.getFecha_fin());
         ieducacionService.saveEducacion(educacion);
-        return new ResponseEntity(new Mensaje("Educacion modificada correctamente"), HttpStatus.OK);
+        return new ResponseEntity(new Mensaje("Educación modificada correctamente"), HttpStatus.OK);
     }
     
 }
