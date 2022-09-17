@@ -17,13 +17,10 @@ import { EditarSkillSComponent } from './componentes/skills/soft/editar-skill.co
 import { NuevaSkillSComponent } from './componentes/skills/soft/nueva-skill.component';
 import { HardComponent } from './componentes/skills/hard/hard.component';
 import { SoftComponent } from './componentes/skills/soft/soft.component';
-//import { PersonaGuardService } from './guards/persona-guard.service';
 
 const routes: Routes = [
   {path: '', component: HomeComponent},
   {path: 'login', component: LoginComponent},
-  //{path: 'crearexp', component: NuevaExperienciaComponent, canActivate: [PersonaGuardService], data: { expectedRol: ['admin'] } },
-  //{path: 'explab', component: ExperienciaComponent },
   {path: 'agregarexp', component: NuevaExperienciaComponent},
   {path: 'editarexp/:id', component: EditarExperienciaComponent},
   {path: 'borrarexp/:id', component: ExperienciaComponent},

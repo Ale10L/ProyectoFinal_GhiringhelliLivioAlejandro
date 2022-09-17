@@ -4,13 +4,13 @@ import com.portfolio.alejandro.Entidades.Persona;
 import java.util.List;
 
 public interface IPersonaService {
-    public List<Persona> getPersona();
+    public List<Persona> getPersona();    
     
     public Persona findPersona();
     
-    public void savePersona(Persona unaPersona);
+    public void savePersona(Persona unaPersona);    
     
-    public void deletePersona(Long id);
+    public void deletePersona(Long id);    
     
     public Persona findPersona(Long id);
 }

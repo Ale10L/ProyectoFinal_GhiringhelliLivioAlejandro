@@ -1,11 +1,18 @@
 .row {
   padding: 30px;
+  background: #8E0E00;
+  /* fallback for old browsers */
+  background: -webkit-linear-gradient(to right, #1F1C18, #8E0E00);
+  /* Chrome 10-25, Safari 5.1-6 */
+  background: linear-gradient(to right, #1F1C18, #8E0E00);
+  /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
 }
 
 div {
-  background-color: black;
+
   text-align: center;
   color:#fefefe;
+
 }
 
 #fotoperfil {
@@ -37,10 +44,12 @@ div {
   text-align: center;
   font-size: 15px;
   margin-left: 5%;
+  margin-bottom: 10%;
   text-align: center;
+  border-style: inherit;
 }
 
-/* @media(min-width: 576px) {
+/*@media(min-width: 576px) {
   #fotoperfil {
     position: absolute;
     width: 15%;
@@ -60,15 +69,15 @@ div {
     left: 40%;
     top: 630px;
   }
-} */
+}
 
-/*
+
 #columna-foto {
   height: 50px;
-} */
-/*
+}
+
 #columna-nombre {
   text-align: center;
-} */
-
+}
+*/
 
