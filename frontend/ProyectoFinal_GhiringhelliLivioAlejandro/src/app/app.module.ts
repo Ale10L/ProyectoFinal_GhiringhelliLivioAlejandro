@@ -1,7 +1,8 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { NgCircleProgressModule } from 'ng-circle-progress';
-
+import { MatDatepickerModule } from '@angular/material/datepicker';
+import { MatNativeDateModule } from '@angular/material/core';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { HeaderComponent } from './componentes/header/header.component';
@@ -30,7 +31,8 @@ import { NuevaSkillSComponent } from './componentes/skills/soft/nueva-skill.comp
 import { EditarProyectoComponent } from './componentes/proyectos/editar-proyecto.component';
 import { EditarSkillHComponent } from './componentes/skills/hard/editar-skill.component';
 import { EditarSkillSComponent } from './componentes/skills/soft/editar-skill.component';
-/*import { PersonaGuardService } from './guards/persona-guard.service';*/
+import { CUSTOM_ELEMENTS_SCHEMA } from '@angular/core';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 @NgModule({
   declarations: [
@@ -64,12 +66,15 @@ import { EditarSkillSComponent } from './componentes/skills/soft/editar-skill.co
     AppRoutingModule,
     NgCircleProgressModule.forRoot({}),
     HttpClientModule,
-    FormsModule
+    FormsModule,
+    MatDatepickerModule,
+    MatNativeDateModule,
+    BrowserAnimationsModule
   ],
   providers: [
-    interceptorProvider/*,
-    PersonaGuardService*/
+    interceptorProvider
   ],
-  bootstrap: [AppComponent]
+  bootstrap: [AppComponent],
+  schemas: [CUSTOM_ELEMENTS_SCHEMA]
 })
 export class AppModule { }
