@@ -5,7 +5,6 @@ import com.portfolio.alejandro.Entidades.Educacion;
 import com.portfolio.alejandro.Security.Controller.Mensaje;
 import com.portfolio.alejandro.Services.ImpEducacionService;
 import java.text.ParseException;
-import java.text.SimpleDateFormat;
 import java.util.List;
 import org.apache.commons.lang3.StringUtils;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -20,7 +19,6 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
 @RestController
@@ -41,19 +39,13 @@ public class EducacionController {
         if(StringUtils.isBlank(dtoedu.getNombre())){
             return new ResponseEntity(new Mensaje("El nombre de la educación es obligatorio"), HttpStatus.BAD_REQUEST);
         }
-        if(ieducacionService.existsByNombre(dtoedu.getNombre())){
-            return new ResponseEntity(new Mensaje("Esa educación ya existe"), HttpStatus.BAD_REQUEST);
-        }
+
         Educacion educacion = new Educacion(dtoedu.getNombre(),dtoedu.getLugar(), dtoedu.getFecha_inicio(),dtoedu.getFecha_fin());
         
         ieducacionService.saveEducacion(educacion);
         return new ResponseEntity(new Mensaje("Educación creada exitosamente"), HttpStatus.OK);
     }
     
-    /*@GetMapping ("/detalleedu/{id}")
-    public Educacion findExperienciaLaboral(@PathVariable Long id){
-        return ieducacionService.findEducacion(id);
-    }*/
     
     @GetMapping("/detalledu/{id}")
     public ResponseEntity<Educacion> findEducacion(@PathVariable Long id){
@@ -83,13 +75,6 @@ public class EducacionController {
             return new ResponseEntity(new Mensaje("El ID no existe"),HttpStatus.BAD_REQUEST);
         }
         
-        if(ieducacionService.existsByNombre(dtoedu.getNombre()) && ieducacionService.getByNombre(dtoedu.getNombre()).get().getId() != id){
-            return new ResponseEntity(new Mensaje("Esa educación ya existe"),HttpStatus.BAD_REQUEST);
-        }
-        
-        if(ieducacionService.existsByNombre(dtoedu.getNombre())){
-            return new ResponseEntity(new Mensaje("Esa educación ya existe"), HttpStatus.BAD_REQUEST);
-        }
         
         Educacion educacion = ieducacionService.getOne(id).get();
         educacion.setNombre(dtoedu.getNombre());

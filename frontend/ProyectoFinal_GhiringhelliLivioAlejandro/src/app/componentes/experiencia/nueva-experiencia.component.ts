@@ -11,8 +11,8 @@ import { ExperienciaLaboralService } from 'src/app/service/experiencia-laboral.s
 export class NuevaExperienciaComponent implements OnInit {
   nombre: string = '';
   descripcion: string = '';
-  fecha_inicio: string = '';
-  fecha_fin: string = '';
+  fecha_inicio: any = '';
+  fecha_fin: any = '';
 
   constructor(private experienciaService: ExperienciaLaboralService, private router: Router) { }
 

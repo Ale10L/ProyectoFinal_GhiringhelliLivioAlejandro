@@ -13,13 +13,17 @@
           <label for="descripcion">Descripción</label>
         </div>
         <div class="form-group">
-          <input type="date" class="form-control" id="fecha_inicio" name="fecha_inicio"
+          <input matInput [matDatepicker]="picker_inicio" class="form-control" id="fecha_inicio" name="fecha_inicio"
             [(ngModel)]="expLab.fecha_inicio" required="" /><span class="barra"></span>
+          <mat-datepicker-toggle matSuffix [for]="picker_inicio"></mat-datepicker-toggle>
+          <mat-datepicker #picker_inicio></mat-datepicker>
           <label for="fecha_inicio">Fecha de inicio</label>
         </div>
         <div class="form-group">
-          <input type="date" class="form-control" id="fecha_fin" name="fecha_fin" [(ngModel)]="expLab.fecha_fin" /><span
-            class="barra"></span>
+          <input matInput [matDatepicker]="picker_fin" class="form-control" id="fecha_fin" name="fecha_fin"
+            [(ngModel)]="expLab.fecha_fin" /><span class="barra"></span>
+          <mat-datepicker-toggle matSuffix [for]="picker_fin"></mat-datepicker-toggle>
+          <mat-datepicker #picker_fin></mat-datepicker>
           <label for="fecha_fin">Fecha de finalización</label>
         </div>
         <div id="botonera">

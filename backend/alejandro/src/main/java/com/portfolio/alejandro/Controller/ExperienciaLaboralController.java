@@ -5,7 +5,6 @@ import com.portfolio.alejandro.Entidades.ExperienciaLaboral;
 import com.portfolio.alejandro.Security.Controller.Mensaje;
 import com.portfolio.alejandro.Services.ImpExperienciaLaboralService;
 import java.text.ParseException;
-//import java.text.SimpleDateFormat;
 import java.util.List;
 import org.apache.commons.lang3.StringUtils;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -20,7 +19,6 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
-//import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
 @RestController
@@ -40,9 +38,6 @@ public class ExperienciaLaboralController {
     public ResponseEntity<?> createExperienciaLaboral(@RequestBody ExperienciaLaboralDTO dtoexp){
         if(StringUtils.isBlank(dtoexp.getNombre())){
             return new ResponseEntity(new Mensaje("El nombre de la experiencia laboral es obligatorio"), HttpStatus.BAD_REQUEST);
-        }
-        if(iexperienciaService.existsByNombre(dtoexp.getNombre())){
-            return new ResponseEntity(new Mensaje("Esa experiencia laboral ya existe"), HttpStatus.BAD_REQUEST);
         }
         
         ExperienciaLaboral experiencia = new ExperienciaLaboral(dtoexp.getNombre(),dtoexp.getDescripcion(), dtoexp.getFecha_inicio(),dtoexp.getFecha_fin());
@@ -73,14 +68,6 @@ public class ExperienciaLaboralController {
         
         if(!iexperienciaService.existsById(id)){
             return new ResponseEntity(new Mensaje("El ID no existe"),HttpStatus.BAD_REQUEST);
-        }
-        
-        if(iexperienciaService.existsByNombre(dtoexp.getNombre()) && iexperienciaService.getByNombre(dtoexp.getNombre()).get().getId() != id){
-            return new ResponseEntity(new Mensaje("Esa experiencia laboral ya existe"),HttpStatus.BAD_REQUEST);
-        }
-        
-        if(iexperienciaService.existsByNombre(dtoexp.getNombre())){
-            return new ResponseEntity(new Mensaje("Esa experiencia laboral ya existe"), HttpStatus.BAD_REQUEST);
         }
         
         ExperienciaLaboral experiencia = iexperienciaService.getOne(id).get();
