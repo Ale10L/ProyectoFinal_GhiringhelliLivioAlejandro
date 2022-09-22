@@ -27,6 +27,24 @@ export class EditarExperienciaComponent implements OnInit {
     );
   }
 
+  getFecha_Inicio(fecha: string): any {
+    let devolverFecha: any;
+    devolverFecha = new Date(fecha);
+    return devolverFecha;
+  }
+
+  getFecha_Fin(fecha: any): any {
+    let devolverFecha: any;
+    let fecha_actual = new Date();
+    if (fecha !== null) {
+      devolverFecha = new Date(fecha);
+      if (devolverFecha.getFullYear() === fecha_actual.getFullYear() && devolverFecha.getMonth() === fecha_actual.getMonth() && devolverFecha.getDay() === fecha_actual.getDay()) {
+        devolverFecha = "actualidad";
+      }
+    }
+    return devolverFecha;
+  }
+
   onUpdate(): void{
     const id = this.activatedRouter.snapshot.params['id'];
     this.expservice.modificar(id, this.expLab).subscribe({

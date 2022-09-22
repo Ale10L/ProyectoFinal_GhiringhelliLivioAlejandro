@@ -33,6 +33,7 @@ import { EditarSkillHComponent } from './componentes/skills/hard/editar-skill.co
 import { EditarSkillSComponent } from './componentes/skills/soft/editar-skill.component';
 import { CUSTOM_ELEMENTS_SCHEMA } from '@angular/core';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { MAT_DATE_LOCALE } from '@angular/material/core'
 
 @NgModule({
   declarations: [
@@ -72,7 +73,8 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
     BrowserAnimationsModule
   ],
   providers: [
-    interceptorProvider
+    interceptorProvider,
+    { provide: MAT_DATE_LOCALE, useValue: 'en-GB' }
   ],
   bootstrap: [AppComponent],
   schemas: [CUSTOM_ELEMENTS_SCHEMA]

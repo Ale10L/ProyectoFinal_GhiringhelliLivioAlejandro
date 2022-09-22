@@ -17,30 +17,48 @@ export class EditarEducacionComponent implements OnInit {
     const id = this.activatedRouter.snapshot.params['id'];
     this.eduservice.detail(id).subscribe({
       next:
-          data => {
-            this.edu = data;
-          },
-        error: error => {
-          alert("No se pudo modificar la Educación");
-          this.router.navigate(['']);
-        }
+        data => {
+          this.edu = data;
+        },
+      error: error => {
+        alert("No se pudo modificar la Educación");
+        this.router.navigate(['']);
       }
+    }
     );
   }
 
-  onUpdate(): void{
+  getFecha_Inicio(fecha: string): any {
+    let devolverFecha: any;
+    devolverFecha = new Date(fecha);
+    return devolverFecha;
+  }
+
+  getFecha_Fin(fecha: any): any {
+    let devolverFecha: any;
+    devolverFecha = new Date(fecha);
+    let fecha_actual = new Date();
+    if(fecha === null || devolverFecha.getDay() === fecha_actual.getDay() && devolverFecha.getMonth() === fecha_actual.getMonth() && devolverFecha.getFullYear() === fecha_actual.getFullYear()){
+      devolverFecha = "actualidad";
+    } else {
+      devolverFecha = new Date(fecha).getFullYear();
+    }
+    return devolverFecha;
+  }
+
+  onUpdate(): void {
     const id = this.activatedRouter.snapshot.params['id'];
     this.eduservice.modificar(id, this.edu).subscribe({
       next:
-          data => {
-            alert("Educación modificada exitosamente");
-            this.router.navigate(['']);
-          },
-        error: error => {
-          alert("No se pudo modificar la Educación");
+        data => {
+          alert("Educación modificada exitosamente");
           this.router.navigate(['']);
-        }
+        },
+      error: error => {
+        alert("No se pudo modificar la Educación");
+        this.router.navigate(['']);
       }
+    }
     );
   }
 }

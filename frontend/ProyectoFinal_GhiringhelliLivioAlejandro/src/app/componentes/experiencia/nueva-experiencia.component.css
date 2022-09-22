@@ -55,8 +55,8 @@ form .form-group{
 #nombre{
   background: none;
   color: #c6c6c6;
-  font-size: 18px;
-  padding: 10px 10px 10px 5px;
+  font-size: 16px;
+  padding: 5px 5px 5px 2.5px;
   display: block;
   width: 100%;
   border: none;
@@ -82,8 +82,8 @@ form .form-group{
 #descripcion{
   background: none;
   color: #c6c6c6;
-  font-size: 18px;
-  padding: 10px 10px 10px 5px;
+  font-size: 16px;
+  padding: 5px 5px 5px 2.5px;
   display: block;
   width: 100%;
   border: none;
@@ -109,8 +109,8 @@ form .form-group{
 #fecha_inicio{
   background: none;
   color: #c6c6c6;
-  font-size: 18px;
-  padding: 10px 10px 10px 5px;
+  font-size: 16px;
+  padding: 5px 5px 5px 2.5px;
   display: block;
   width: 100%;
   border: none;
@@ -122,13 +122,6 @@ form .form-group{
   color: #5e5d5d;
 }
 
-#fecha_inicio:focus~label,
-#fecha_inicio:valid~label{
-  top: -14px;
-  font-size: 12px;
-  color: #2196f3
-}
-
 #fecha_inicio:focus~.barra::before{
   width: 100%;
 }
@@ -136,8 +129,8 @@ form .form-group{
 #fecha_fin{
   background: none;
   color: #c6c6c6;
-  font-size: 18px;
-  padding: 10px 10px 10px 5px;
+  font-size: 16px;
+  padding: 5px 5px 5px 2.5px;
   display: block;
   width: 100%;
   border: none;
@@ -149,17 +142,9 @@ form .form-group{
   color: #5e5d5d;
 }
 
-#fecha_fin:focus~label,
-#fecha_fin:valid~label{
-  top: -14px;
-  font-size: 12px;
-  color: #2196f3
-}
-
 #fecha_fin:focus~.barra::before{
   width: 100%;
 }
-
 .barra{
   position: relative;
   display: block;

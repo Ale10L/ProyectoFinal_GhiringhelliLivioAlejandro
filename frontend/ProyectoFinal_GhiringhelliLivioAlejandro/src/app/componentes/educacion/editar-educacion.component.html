@@ -13,18 +13,22 @@
           <label for="lugar">Lugar</label>
         </div>
         <div class="form-group">
-          <input matInput [matDatepicker]="picker_inicio" class="form-control" id="fecha_inicio" name="fecha_inicio"
-            [(ngModel)]="edu.fecha_inicio" required="" /><span class="barra"></span>
-          <mat-datepicker-toggle matSuffix [for]="picker_inicio"></mat-datepicker-toggle>
-          <mat-datepicker #picker_inicio></mat-datepicker>
-          <label for="fecha_inicio">Fecha de inicio</label>
+          <mat-form-field>
+            <input matInput [matDatepicker]="picker_inicio" class="form-control" id="fecha_inicio" name="fecha_inicio"
+              [(ngModel)]="edu.fecha_inicio" required="" placeholder="{{getFecha_Inicio(edu.fecha_inicio)}}"/><span class="barra"></span>
+            <mat-hint id="fecha_inicio_label" for="fecha_inicio"><b>Fecha de inicio</b></mat-hint>
+            <mat-datepicker-toggle matSuffix [for]="picker_inicio"></mat-datepicker-toggle>
+            <mat-datepicker #picker_inicio></mat-datepicker>
+          </mat-form-field>
         </div>
         <div class="form-group">
-          <input matInput [matDatepicker]="picker_fin" class="form-control" id="fecha_fin" name="fecha_fin"
-            [(ngModel)]="edu.fecha_fin" /><span class="barra"></span>
-          <mat-datepicker-toggle matSuffix [for]="picker_fin"></mat-datepicker-toggle>
-          <mat-datepicker #picker_fin></mat-datepicker>
-          <label for="fecha_fin">Fecha de finalización</label>
+          <mat-form-field>
+            <input matInput [matDatepicker]="picker_fin" class="form-control" id="fecha_fin" name="fecha_fin"
+              [(ngModel)]="edu.fecha_fin" placeholder="{{getFecha_Fin(edu.fecha_fin)}}" /><span class="barra"></span>
+            <mat-hint id="fecha_finalizacion_label" for="fecha_finalizacion"><b>Fecha de finalización</b></mat-hint>
+            <mat-datepicker-toggle matSuffix [for]="picker_fin"></mat-datepicker-toggle>
+            <mat-datepicker #picker_fin></mat-datepicker>
+          </mat-form-field>
         </div>
         <div id="botonera">
           <button class="btn btn-primary">Editar</button>

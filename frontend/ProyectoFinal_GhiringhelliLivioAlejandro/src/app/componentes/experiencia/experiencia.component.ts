@@ -35,12 +35,14 @@ export class ExperienciaComponent implements OnInit {
     return devolverFecha;
   }
 
-  getYearFin(fecha: string): any {
+  getYearFin(fecha: any): any {
     let devolverFecha: any;
-    if (fecha !== null) {
-      devolverFecha = new Date(fecha).getFullYear();
-    } else {
+    devolverFecha = new Date(fecha);
+    let fecha_actual = new Date();
+    if(fecha === null || devolverFecha.getDay() === fecha_actual.getDay() && devolverFecha.getMonth() === fecha_actual.getMonth() && devolverFecha.getFullYear() === fecha_actual.getFullYear()){
       devolverFecha = "actualidad";
+    } else {
+      devolverFecha = new Date(fecha).getFullYear();
     }
     return devolverFecha;
   }
