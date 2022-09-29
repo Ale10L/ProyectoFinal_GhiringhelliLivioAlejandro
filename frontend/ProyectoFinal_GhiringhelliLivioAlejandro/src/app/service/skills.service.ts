@@ -8,7 +8,7 @@ import { Skill } from '../model/skills.model';
 })
 
 export class SkillSService{
-  URL = 'http://localhost:8080/skills/'
+  URL = 'https://bkdghiringhellialejandro.herokuapp.com/skills/'
   constructor(private http: HttpClient) { }
 
   public getSkill(): Observable<Skill[]>{
