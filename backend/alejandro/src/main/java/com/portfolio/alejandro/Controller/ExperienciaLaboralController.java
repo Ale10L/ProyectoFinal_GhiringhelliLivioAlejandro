@@ -23,7 +23,8 @@ import org.springframework.web.bind.annotation.RestController;
 
 @RestController
 @RequestMapping("explab")
-@CrossOrigin(origins = "frontghiringhellialejandro.web.app/")
+@CrossOrigin(origins = "https://frontghiringhellialejandro.web.app/")
+
 public class ExperienciaLaboralController {
     @Autowired ImpExperienciaLaboralService iexperienciaService;
     

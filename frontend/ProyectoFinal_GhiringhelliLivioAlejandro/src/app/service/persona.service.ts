@@ -8,6 +8,7 @@ import { Persona } from '../model/persona.model';
 })
 export class PersonaService {
   URL = 'https://bkdghiringhellialejandro.herokuapp.com/personas/'
+  //URL = 'https://localhost:8080/explab/'
 
   constructor(private http: HttpClient) { }
 

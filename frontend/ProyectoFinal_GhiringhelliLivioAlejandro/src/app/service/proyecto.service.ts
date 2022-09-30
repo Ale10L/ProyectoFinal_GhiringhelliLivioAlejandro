@@ -9,6 +9,8 @@ import { Proyectos } from '../model/proyecto.model';
 
 export class ProyectoService{
   URL = 'https://bkdghiringhellialejandro.herokuapp.com/proyecto/'
+  //URL = 'https://localhost:8080/proyecto/'
+
   constructor(private http: HttpClient) { }
 
   public getProyecto(): Observable<Proyectos[]>{

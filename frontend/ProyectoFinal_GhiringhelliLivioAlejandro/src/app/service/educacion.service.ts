@@ -8,6 +8,8 @@ import { Educacion } from '../model/educacion.model';
 })
 export class EducacionService {
   URL = 'https://bkdghiringhellialejandro.herokuapp.com/edu/'
+  //URL = 'https://localhost:8080/edu/'
+
   constructor(private http: HttpClient) { }
 
   public getEducacion(): Observable<Educacion[]>{

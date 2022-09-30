@@ -8,6 +8,8 @@ import { Experiencia_Laboral } from '../model/experiencia_laboral.model';
 })
 export class ExperienciaLaboralService {
   URL = 'https://bkdghiringhellialejandro.herokuapp.com/explab/'
+  //URL = 'https://localhost:8080/explab/'
+
   constructor(private http: HttpClient) { }
 
   public getExperienciaLaboral(): Observable<Experiencia_Laboral[]>{

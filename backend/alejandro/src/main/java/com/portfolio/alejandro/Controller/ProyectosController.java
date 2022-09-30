@@ -24,7 +24,8 @@ import org.springframework.web.bind.annotation.RestController;
 
 @RestController
 @RequestMapping("proyecto")
-@CrossOrigin(origins = "frontghiringhellialejandro.web.app/")
+@CrossOrigin(origins = "https://frontghiringhellialejandro.web.app/")
+//@CrossOrigin(origins = "*")
 public class ProyectosController {
     @Autowired ImpProyectosService iproyectosService;
     
