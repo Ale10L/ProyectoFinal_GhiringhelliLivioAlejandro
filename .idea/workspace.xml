@@ -1,11 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="d25b4d23-9787-4558-a719-bc43a51035a4" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/backend/alejandro/target/alejandro-0.0.1-SNAPSHOT.jar" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/backend/alejandro/target/alejandro-0.0.1-SNAPSHOT.jar.original" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/alejandro/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/backend/alejandro/.gitignore" afterDir="false" />
+    <list default="true" id="d25b4d23-9787-4558-a719-bc43a51035a4" name="Changes" comment="agregando archivos">
+      <change afterPath="$PROJECT_DIR$/backend/Dockerfile.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/Dockerfile" beforeDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -15,9 +13,6 @@
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
     <option name="ROOT_SYNC" value="DONT_SYNC" />
-  </component>
-  <component name="HighlightingSettingsPerFile">
-    <setting file="file://$PROJECT_DIR$/backend/Dockerfile" root0="FORCE_HIGHLIGHTING" />
   </component>
   <component name="MarkdownSettingsMigration">
     <option name="stateVersion" value="1" />
@@ -48,6 +43,14 @@
       <option name="presentableId" value="Default" />
       <updated>1689609707808</updated>
     </task>
+    <task id="LOCAL-00001" summary="agregando archivos">
+      <created>1689648842282</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1689648842282</updated>
+    </task>
+    <option name="localTasksCounter" value="2" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -66,5 +69,7 @@
     <ignored-roots>
       <path value="$PROJECT_DIR$/backend" />
     </ignored-roots>
+    <MESSAGE value="agregando archivos" />
+    <option name="LAST_COMMIT_MESSAGE" value="agregando archivos" />
   </component>
 </project>
