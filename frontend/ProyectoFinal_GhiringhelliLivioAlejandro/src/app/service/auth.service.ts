@@ -9,7 +9,8 @@ import { NuevoUsuario } from '../model/nuevo-usuario.model';
   providedIn: 'root'
 })
 export class AuthService {
-  authURL = 'https://bkdghiringhellialejandro.herokuapp.com/auth/';
+  authURL = 'https://back-ghiringhelli-alejandro.onrender.com/auth/'
+  //authURL = 'https://bkdghiringhellialejandro.herokuapp.com/auth/';
   //authURL = 'https://localhost:8080/auth/';
 
   constructor(private httpClient: HttpClient) { }

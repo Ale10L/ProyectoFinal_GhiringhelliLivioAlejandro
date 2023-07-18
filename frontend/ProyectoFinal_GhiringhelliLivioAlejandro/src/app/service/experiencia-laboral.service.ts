@@ -7,7 +7,8 @@ import { Experiencia_Laboral } from '../model/experiencia_laboral.model';
   providedIn: 'root'
 })
 export class ExperienciaLaboralService {
-  URL = 'https://bkdghiringhellialejandro.herokuapp.com/explab/'
+  URL = 'https://back-ghiringhelli-alejandro.onrender.com/explab/'
+  //URL = 'https://bkdghiringhellialejandro.herokuapp.com/explab/'
   //URL = 'https://localhost:8080/explab/'
 
   constructor(private http: HttpClient) { }

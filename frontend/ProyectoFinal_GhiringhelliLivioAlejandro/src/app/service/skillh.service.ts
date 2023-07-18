@@ -8,7 +8,8 @@ import { Skill } from '../model/skillh.model';
 })
 
 export class SkillHService{
-  URL = 'https://bkdghiringhellialejandro.herokuapp.com/skillh/'
+  URL = 'https://back-ghiringhelli-alejandro.onrender.com/skillh'
+  //URL = 'https://bkdghiringhellialejandro.herokuapp.com/skillh/'
   //URL = 'https://localhost:8080/skillh/'
 
   constructor(private http: HttpClient) { }

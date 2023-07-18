@@ -7,7 +7,8 @@ import { Educacion } from '../model/educacion.model';
   providedIn: 'root'
 })
 export class EducacionService {
-  URL = 'https://bkdghiringhellialejandro.herokuapp.com/edu/'
+  URL = 'https://back-ghiringhelli-alejandro.onrender.com/edu/'
+  //URL =https://bkdghiringhellialejandro.herokuapp.com/edu/'
   //URL = 'https://localhost:8080/edu/'
 
   constructor(private http: HttpClient) { }
